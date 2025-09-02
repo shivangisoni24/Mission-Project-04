@@ -17,11 +17,11 @@ public class TestRoleModel {
 	public static RoleModel model = new RoleModel();
 
 	public static void main(String[] args) throws ParseException {
-		// testAdd();
-		// testUpdate();
-		// testDelete();
-		// testfindByPk();
-		// testFindByName();
+//		 testAdd();
+//		 testUpdate();
+//		 testDelete();
+//		 testfindByPk();
+//		 testFindByName();
 		 testSearch();
 	}
 
@@ -65,7 +65,7 @@ public class TestRoleModel {
 	public static void testDelete() {
 		try {
 			RoleBean bean = new RoleBean();
-			long pk = 1L;
+			long pk = 7L;
 			bean.setId(pk);
 			model.delete(bean);
 			RoleBean deletedbean = model.findByPk(pk);

@@ -3,6 +3,7 @@ package in.co.rays.proj4.test;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,174 +11,241 @@ import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.model.UserModel;
 
 public class TestUserModel {
-	public static void main(String[] args)throws Exception {
-		
-		//int nextPk=testNextPk();
-		//System.out.println("Next pk: "+nextPk);
-		
-		//testFindByLogin("nidhi@gmail.com");
-		//testFindByPk(3);
-		
-		//UserBean bean=new UserBean();
-		//SimpleDateFormat sdf1=new SimpleDateFormat("yyyy-MM-dd");
-		//bean.setFirstName("Chayan");
-		//bean.setLastName("Garg");
-		//bean.setLogin("chayan@gmail.com");
-		//bean.setPassword("123");
-		//bean.setConfirmPassword("123");
-		//bean.setDob(sdf1.parse("1950-07-17"));
-		//bean.setMobileNo("8456123789");
-		//bean.setRoleId(1);
-		//bean.setGender("male");
-		//bean.setCreatedBy("Nidhi");
-		//bean.setModifiedBy("Nidhi");
-		//bean.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
-		//bean.setModifiedDateTime(new Timestamp(System.currentTimeMillis()));
-		//testAdd(bean);
-		
-		//testDelete(1);
-		
-		//UserBean bean1=new UserBean();
-		//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		//bean1.setId(6);
-		//bean1.setFirstName("Mamta");
-		//bean1.setLastName("Garg");
-		//bean1.setLogin("mamta@gmail.com");
-		//bean1.setPassword("123");
-		//bean1.setConfirmPassword("123");
-		//bean1.setDob(sdf.parse("1990-05-15"));
-		//bean1.setMobileNo("8456123789");
-		//bean1.setRoleId(4);
-		//bean1.setGender("female");
-		//bean1.setCreatedBy("Nidhi");
-		//bean1.setModifiedBy("Nidhi");
-		//bean1.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
-		//bean1.setModifiedDateTime(new Timestamp(System.currentTimeMillis()));
-		//testUpdate(bean1);
-		
-		//UserBean bean=testFindByLogin("nidhi@gmail.com");
-		//System.out.print(bean.getId());
-		//System.out.print("\t"+bean.getFirstName());
-		//System.out.print("\t"+bean.getLastName());
-		//System.out.print("\t"+bean.getLogin());
-		//System.out.print("\t"+bean.getPassword());
-		//System.out.print("\t"+bean.getDob());
-		//System.out.print("\t"+bean.getMobileNo());
-		//System.out.print("\t"+bean.getRoleId());
-		//System.out.print("\t"+bean.getGender());
-		//System.out.print("\t"+bean.getCreatedBy());
-		//System.out.print("\t"+bean.getModifiedBy());
-		//System.out.print("\t"+bean.getCreatedDateTime());
-		//System.out.println("\t"+bean.getModifiedDateTime());
-		
-		UserBean bean2=new UserBean();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		//bean2.setId(4);
-		bean2.setFirstName("Nidhi");
-		//bean2.setLastName("Agrawal");
-				//bean1.setLogin("mamta@gmail.com");
-				//bean1.setPassword("123");
-				//bean1.setConfirmPassword("123");
-				//bean1.setDob(sdf.parse("1990-05-15"));
-				//bean1.setMobileNo("8456123789");
-				//bean1.setRoleId(4);
-				//bean1.setGender("female");
-				//bean1.setCreatedBy("Nidhi");
-				//bean1.setModifiedBy("Nidhi");
-				//bean1.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
-				//bean1.setModifiedDateTime(new Timestamp(System.currentTimeMillis()));		
-		List list=testSearch(bean2,1,5);
-		Iterator it =list.iterator();
-		while(it.hasNext()) {
-			UserBean bean1=(UserBean)it.next();
-			System.out.print(bean1.getId());
-			System.out.print("\t"+bean1.getFirstName());
-			System.out.print("\t"+bean1.getLastName());
-			//System.out.print("\t"+bean1.getLogin());
-			//System.out.print("\t"+bean1.getPassword());
-			//System.out.print("\t"+bean1.getDob());
-			//System.out.print("\t"+bean1.getMobileNo());
-			//System.out.print("\t"+bean1.getRoleId());
-			//System.out.print("\t"+bean1.getGender());
-			//System.out.print("\t"+bean1.getCreatedBy());
-			//System.out.print("\t"+bean1.getModifiedBy());
-			//System.out.print("\t"+bean1.getCreatedDateTime());
-			//System.out.println("\t"+bean1.getModifiedDateTime());
-			
-		}
-		
-		//UserBean bean2=null;
-		//UserBean bean2=testAuthenticate("nidhi123@gmail.com", "12345");
-		//System.out.println(bean2);
-		
-	//	if(bean2!=null) {
-			
-		//	System.out.println("Successfully logged in");
-		//	}else 
-		//	{
-		//		System.out.println("Please enter login id and password correct");}
-		
-		
 
-		
+	public static void main(String[] args) throws Exception {
+
+		testNextPk();
+//		testAdd();
+//		testUpdate();
+//		testDelete();
+//		testfindByPk();
+//		testfindByLogin();
+//		testsearch();
+//		testlist();
+//		testauthenticate();
 	}
-	
-	public static UserBean testAuthenticate(String login,String password) {
-		try {
-			UserModel model=new UserModel();
-			//UserBean bean=new UserBean();
-			UserBean bean=model.authenticate(login, password);
-			return bean;
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			return null;
+
+	private static void testauthenticate() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		bean = model.authenticate("shivi@gmail.com","pass123");
+
+		if (bean != null) {
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getDob());
+			System.out.print("\t" + bean.getMobileNo());
+			System.out.print("\t" + bean.getRoleId());
+			System.out.print("\t" + bean.getGender());
+			System.out.print("\t" + bean.getCreatedBy());
+			System.out.print("\t" + bean.getModifiedBy());
+			System.out.print("\t" + bean.getCreatedDatetime());
+			System.out.println("\t" + bean.getModifiedDatetime());
+		} else {
+			System.out.println("Invalid Login ID and Password...");
+		}
+
+	}
+
+	private static void testlist() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		List list = new ArrayList();
+
+		list = model.list();
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+
+			bean = (UserBean) it.next();
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getDob());
+			System.out.print("\t" + bean.getMobileNo());
+			System.out.print("\t" + bean.getRoleId());
+			System.out.print("\t" + bean.getGender());
+			System.out.print("\t" + bean.getCreatedBy());
+			System.out.print("\t" + bean.getModifiedBy());
+			System.out.print("\t" + bean.getCreatedDatetime());
+			System.out.println("\t" + bean.getModifiedDatetime());
+
 		}
 	}
-	
-	public static Integer testNextPk() throws Exception {
-		UserModel model=new UserModel();
-		int nextPk=model.nextPk();
-		return nextPk;
+
+	private static void testsearch() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		List list = new ArrayList();
+
+		// bean.setId(11);
+		// bean.setFirstName("Shraddha");
+		// bean.setLastName("Joshi");
+		// bean.setLogin("shraddha@gmail.com");
+		// bean.setDob(sdf.parse("2001-04-29"));
+		// bean.setMobileNo("9669866628");
+		// bean.setRoleId(2);
+		// bean.setGender("Female");
+
+		list = model.search(bean, 1, 10);
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+
+			bean = (UserBean) it.next();
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getDob());
+			System.out.print("\t" + bean.getMobileNo());
+			System.out.print("\t" + bean.getRoleId());
+			System.out.print("\t" + bean.getGender());
+			System.out.print("\t" + bean.getCreatedBy());
+			System.out.print("\t" + bean.getModifiedBy());
+			System.out.print("\t" + bean.getCreatedDatetime());
+			System.out.println("\t" + bean.getModifiedDatetime());
+
+		}
 	}
-	
-	public static void testAdd(UserBean bean)throws Exception{
-		UserModel model=new UserModel();
-		model.add(bean);
+
+	private static void testfindByLogin() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		bean = model.findByLogin("shashank@gmail.com");
+
+		if (bean != null) {
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getDob());
+			System.out.print("\t" + bean.getMobileNo());
+			System.out.print("\t" + bean.getRoleId());
+			System.out.print("\t" + bean.getGender());
+			System.out.print("\t" + bean.getCreatedBy());
+			System.out.print("\t" + bean.getModifiedBy());
+			System.out.print("\t" + bean.getCreatedDatetime());
+			System.out.println("\t" + bean.getModifiedDatetime());
+		} else {
+			System.out.println("Invalid Login ID...");
+		}
 	}
-	
-	public static void testUpdate(UserBean bean)throws Exception{
-		UserModel model=new UserModel();
+
+	private static void testfindByPk() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		bean = model.findByPk(3);
+
+		if (bean != null) {
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getDob());
+			System.out.print("\t" + bean.getMobileNo());
+			System.out.print("\t" + bean.getRoleId());
+			System.out.print("\t" + bean.getGender());
+			System.out.print("\t" + bean.getCreatedBy());
+			System.out.print("\t" + bean.getModifiedBy());
+			System.out.print("\t" + bean.getCreatedDatetime());
+			System.out.println("\t" + bean.getModifiedDatetime());
+		} else {
+			System.out.println("Invalid ID...");
+		}
+	}
+
+	private static void testDelete() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		bean.setId(10);
+
+		model.delete(bean);
+
+	}
+
+	private static void testUpdate() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		bean.setFirstName("Shivam");
+		bean.setLastName("Thakur");
+		bean.setLogin("shivam@gmail.com");
+		bean.setPassword("pass123");
+		bean.setDob(sdf.parse("1976-12-20"));
+		bean.setMobileNo("9407126877");
+		bean.setRoleId(4);
+		bean.setGender("Male");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+		bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+		bean.setId(8);
+
 		model.update(bean);
+
 	}
-	
-	public static void testDelete(int id)throws Exception{
-		UserModel model=new UserModel();
-	//	model.delete(id);
+
+	private static void testAdd() throws Exception {
+
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		bean.setFirstName("Shivi");
+		bean.setLastName("Soni");
+		bean.setLogin("shivi@gmail.com");
+		bean.setPassword("pass123");
+		bean.setDob(sdf.parse("1999-12-20"));
+		bean.setMobileNo("9407126877");
+		bean.setRoleId(8);
+		bean.setGender("Female");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+		bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+
+		model.add(bean);
+
 	}
-public static void testFindByPk(long id) throws Exception{
-		
-		UserModel model=new UserModel();
-		UserBean bean=model.findByPk(id);
-		if(bean!=null) {
-			System.out.println(bean.getLastName());
-		}else {
-			System.out.println("Data not found");
-	}		
-		}
-	public static void testFindByLogin(String login) throws Exception{
-		
-		UserModel model=new UserModel();
-		UserBean bean=model.findByLogin(login);
-		if(bean!=null) {
-			System.out.println(bean.getLastName());
-		}else {
-			System.out.println("Data not found");
-	}		
-		}
-	public static List testSearch(UserBean bean,int pageNo,int pageSize) throws Exception{
-		UserModel model=new UserModel();
-		List list=(ArrayList)model.search(bean, pageNo,pageSize);
-		return list;
+
+	private static void testNextPk() throws Exception {
+
+		UserModel model = new UserModel();
+
+		int i = model.nextPk();
+
+		System.out.println("NextPk is ..." + i);
 	}
+
 }
