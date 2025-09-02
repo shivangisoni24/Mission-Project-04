@@ -65,7 +65,7 @@ public class TestCollegeModel {
 //		bean.setAddress("Rau");
 //		bean.setState("Madhya Pradesh");
 //		bean.setCity("Indore");
-//		bean.setPhoneNo("9669866628");
+//		bean.setPhoneNo("8269650503");
 		
 		list = model.search(bean, 1, 10);
 
@@ -159,7 +159,7 @@ public class TestCollegeModel {
 		bean.setAddress("Behind Aurobindo");
 		bean.setState("Madhya Pradesh");
 		bean.setCity("Indore");
-		bean.setPhoneNo("9669866628");
+		bean.setPhoneNo("8269650503");
 		bean.setCreatedBy("admin");
 		bean.setModifiedBy("admin");
 		bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
@@ -179,7 +179,7 @@ public class TestCollegeModel {
 		bean.setAddress("ByPass");
 		bean.setState("Madhya Pradesh");
 		bean.setCity("Indore");
-		bean.setPhoneNo("9669866628");
+		bean.setPhoneNo("8269650503");
 		bean.setCreatedBy("admin");
 		bean.setModifiedBy("admin");
 		bean.setCreatedDatetime(new Timestamp(new Date().getTime()));

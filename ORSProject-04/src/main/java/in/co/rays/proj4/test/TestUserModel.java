@@ -98,7 +98,7 @@ public class TestUserModel {
 		// bean.setLastName("Joshi");
 		// bean.setLogin("shraddha@gmail.com");
 		// bean.setDob(sdf.parse("2001-04-29"));
-		// bean.setMobileNo("9669866628");
+		// bean.setMobileNo("8269650503");
 		// bean.setRoleId(2);
 		// bean.setGender("Female");
 
@@ -203,7 +203,7 @@ public class TestUserModel {
 		bean.setLogin("shivam@gmail.com");
 		bean.setPassword("pass123");
 		bean.setDob(sdf.parse("1976-12-20"));
-		bean.setMobileNo("9407126877");
+		bean.setMobileNo("8269650503");
 		bean.setRoleId(4);
 		bean.setGender("Male");
 		bean.setCreatedBy("admin");
@@ -227,7 +227,7 @@ public class TestUserModel {
 		bean.setLogin("shivi@gmail.com");
 		bean.setPassword("pass123");
 		bean.setDob(sdf.parse("1999-12-20"));
-		bean.setMobileNo("9407126877");
+		bean.setMobileNo("8269650503");
 		bean.setRoleId(8);
 		bean.setGender("Female");
 		bean.setCreatedBy("admin");

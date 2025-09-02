@@ -72,7 +72,6 @@ public class StudentModel {
 			pstmt.setString(7, bean.getEmail());
 			pstmt.setLong(8, bean.getCollegeId());
 			pstmt.setString(9, bean.getCollegeName());
-
 			pstmt.setString(10, bean.getCreatedBy());
 			pstmt.setString(11, bean.getModifiedBy());
 			pstmt.setTimestamp(12, bean.getCreatedDatetime());
@@ -202,7 +201,6 @@ public class StudentModel {
 				bean.setEmail(rs.getString(7));
 				bean.setCollegeId(rs.getLong(8));
 				bean.setCollegeName(rs.getString(9));
-
 				bean.setCreatedBy(rs.getString(10));
 				bean.setModifiedBy(rs.getString(11));
 				bean.setCreatedDatetime(rs.getTimestamp(12));
@@ -246,7 +244,6 @@ public class StudentModel {
 				bean.setEmail(rs.getString(7));
 				bean.setCollegeId(rs.getLong(8));
 				bean.setCollegeName(rs.getString(9));
-
 				bean.setCreatedBy(rs.getString(10));
 				bean.setModifiedBy(rs.getString(11));
 				bean.setCreatedDatetime(rs.getTimestamp(12));

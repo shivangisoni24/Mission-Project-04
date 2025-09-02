@@ -107,7 +107,7 @@ public class CollegeModel {
 		try {
 			conn = JDBCDataSource.getConnection();
 
-			conn.setAutoCommit(false);// Begin transaction
+			conn.setAutoCommit(false);
 
 			PreparedStatement pstmt = conn.prepareStatement(
 					"update st_college set name = ?, address = ?, state = ?, city = ?, phone_no = ?, created_by = ?, modified_by = ?, created_datetime = ?, modified_datetime = ? where id = ?");

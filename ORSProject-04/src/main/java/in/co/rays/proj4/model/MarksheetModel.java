@@ -193,7 +193,6 @@ public class MarksheetModel {
 				bean.setPhysics(rs.getInt(5));
 				bean.setChemistry(rs.getInt(6));
 				bean.setMaths(rs.getInt(7));
-
 				bean.setCreatedBy(rs.getString(8));
 				bean.setModifiedBy(rs.getString(9));
 				bean.setCreatedDatetime(rs.getTimestamp(10));
@@ -236,7 +235,6 @@ public class MarksheetModel {
 				bean.setPhysics(rs.getInt(5));
 				bean.setChemistry(rs.getInt(6));
 				bean.setMaths(rs.getInt(7));
-
 				bean.setCreatedBy(rs.getString(8));
 				bean.setModifiedBy(rs.getString(9));
 				bean.setCreatedDatetime(rs.getTimestamp(10));
@@ -311,7 +309,6 @@ public class MarksheetModel {
 				bean.setPhysics(rs.getInt(5));
 				bean.setChemistry(rs.getInt(6));
 				bean.setMaths(rs.getInt(7));
-
 				bean.setCreatedBy(rs.getString(8));
 				bean.setModifiedBy(rs.getString(9));
 				bean.setCreatedDatetime(rs.getTimestamp(10));

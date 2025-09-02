@@ -67,7 +67,7 @@ private static void testlist() throws Exception {
 		bean.setLastName("Sonone");
 		bean.setDob(sdf.parse("28-2-2004"));
 		bean.setGender("Female");
-		bean.setMobileNo("9876543211");
+		bean.setMobileNo("8269650503");
 		bean.setEmail("pari@gmail.com");
 		bean.setCollegeId(1L);
 		bean.setCreatedBy("Admin");
@@ -87,7 +87,7 @@ private static void testlist() throws Exception {
 		bean.setLastName("Parmar");
 		bean.setDob(sdf.parse("15-05-1998"));
 		bean.setGender("female");
-		bean.setMobileNo("8765432199");
+		bean.setMobileNo("8269650503");
 		bean.setEmail("muskan@gmail.com");
 		bean.setCollegeId(7L);
 		bean.setCreatedBy("Admin");
@@ -166,7 +166,7 @@ private static void testlist() throws Exception {
 //		bean.setLastName("Thakur");
 //		bean.setDob(sdf.parse("07-03-2001"));
 //		bean.setGender("Female");
-//		bean.setMobileNo("9812345698");
+//		bean.setMobileNo("8269650503");
 //		bean.setEmail("riya@gmail.com");
 //		bean.setCollegeId(7L);
 //		bean.setCollegeName("MIT");
