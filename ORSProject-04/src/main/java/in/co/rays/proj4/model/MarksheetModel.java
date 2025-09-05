@@ -41,7 +41,7 @@ public class MarksheetModel {
 
 	}
 
-	public void add(MarksheetBean bean) throws ApplicationException, DuplicateRecordException {
+	public long add(MarksheetBean bean) throws ApplicationException, DuplicateRecordException {
 
 		Connection conn = null;
 		int pk = 0;
@@ -92,6 +92,7 @@ public class MarksheetModel {
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}
+		return pk;
 
 	}
 

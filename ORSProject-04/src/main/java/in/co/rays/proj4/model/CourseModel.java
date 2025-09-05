@@ -36,7 +36,7 @@ public class CourseModel {
         return pk + 1;
     }
 
-    public void add(CourseBean bean) throws ApplicationException, DuplicateRecordException {
+    public long add(CourseBean bean) throws ApplicationException, DuplicateRecordException {
         Connection conn = null;
         int pk;
 
@@ -51,7 +51,7 @@ public class CourseModel {
             conn.setAutoCommit(false);
 
             PreparedStatement pstmt = conn.prepareStatement(
-                "INSERT INTO st_course (course_id, course_name, duration, description, created_by, modified_by, created_datetime, modified_datetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                "INSERT INTO st_course (id, name, duration, description, created_by, modified_by, created_datetime, modified_datetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             pstmt.setInt(1, pk);
             pstmt.setString(2, bean.getName());
             pstmt.setString(3, bean.getDuration());
@@ -75,6 +75,7 @@ public class CourseModel {
         } finally {
             JDBCDataSource.closeConnection(conn);
         }
+		return pk;
     }
 
     public void update(CourseBean bean) throws ApplicationException, DuplicateRecordException {
@@ -89,8 +90,8 @@ public class CourseModel {
             conn = JDBCDataSource.getConnection();
             conn.setAutoCommit(false);
 
-            PreparedStatement pstmt = conn.prepareStatement(
-                "UPDATE st_course SET course_name=?, duration=?, description=?, created_by=?, modified_by=?, created_datetime=?, modified_datetime=? WHERE course_id=?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(id) FROM st_course");
+
             pstmt.setString(1, bean.getName());
             pstmt.setString(2, bean.getDuration());
             pstmt.setString(3, bean.getDescription());
@@ -122,7 +123,7 @@ public class CourseModel {
             conn = JDBCDataSource.getConnection();
             conn.setAutoCommit(false);
 
-            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM st_course WHERE course_id=?");
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM st_course WHERE id=?");
             pstmt.setInt(1, id);
             int i = pstmt.executeUpdate();
 			System.out.println("Data Deleted => " + i);
@@ -148,13 +149,14 @@ public class CourseModel {
 
         try {
             conn = JDBCDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM st_course WHERE course_id=?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM st_course WHERE id=?");
+
             pstmt.setLong(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 bean = new CourseBean();
-                bean.setId(rs.getInt("course_id"));
-                bean.setName(rs.getString("course_name"));
+                bean.setId(rs.getInt("id"));
+                bean.setName(rs.getString("name"));
                 bean.setDuration(rs.getString("duration"));
                 bean.setDescription(rs.getString("description"));
                 bean.setCreatedBy(rs.getString("created_by"));
@@ -165,6 +167,7 @@ public class CourseModel {
             rs.close();
             pstmt.close();
         } catch (Exception e) {
+        	e.printStackTrace();
             throw new ApplicationException("Exception in getting course by PK");
         } finally {
             JDBCDataSource.closeConnection(conn);
@@ -179,13 +182,13 @@ public class CourseModel {
 
         try {
             conn = JDBCDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM st_course WHERE course_name=?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM st_course WHERE name=?");
             pstmt.setString(1, name);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 bean = new CourseBean();
-                bean.setId(rs.getInt("course_id"));
-                bean.setName(rs.getString("course_name"));
+                bean.setId(rs.getInt("id"));
+                bean.setName(rs.getString("name"));
                 bean.setDuration(rs.getString("duration"));
                 bean.setDescription(rs.getString("description"));
                 bean.setCreatedBy(rs.getString("created_by"));
@@ -241,8 +244,8 @@ public class CourseModel {
 
             while (rs.next()) {
                 bean = new CourseBean();
-                bean.setId(rs.getInt("course_id"));
-                bean.setName(rs.getString("course_name"));
+                bean.setId(rs.getInt("id"));
+                bean.setName(rs.getString("name"));
                 bean.setDuration(rs.getString("duration"));
                 bean.setDescription(rs.getString("description"));
                 bean.setCreatedBy(rs.getString("created_by"));

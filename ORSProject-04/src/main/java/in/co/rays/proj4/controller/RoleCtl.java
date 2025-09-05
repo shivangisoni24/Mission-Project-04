@@ -72,7 +72,7 @@ public class RoleCtl extends BaseCtl {
 			RoleBean bean = (RoleBean) populateBean(request);
 
 			try {
-				long pk = model.add(bean);
+				long pk = model.add(bean);			
 				ServletUtility.setBean(bean, request);
 				ServletUtility.setSuccessMessage("Data is successfully saved", request);
 			} catch (DuplicateRecordException e) {

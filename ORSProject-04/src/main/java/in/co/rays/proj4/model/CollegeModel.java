@@ -121,7 +121,7 @@ public class CollegeModel {
 			pstmt.setString(7, bean.getModifiedBy());
 			pstmt.setTimestamp(8, bean.getCreatedDatetime());
 			pstmt.setTimestamp(9, bean.getModifiedDatetime());
-			pstmt.setLong(10, bean.getId());
+		    pstmt.setLong(10, bean.getId());
 
 			int i = pstmt.executeUpdate();
 

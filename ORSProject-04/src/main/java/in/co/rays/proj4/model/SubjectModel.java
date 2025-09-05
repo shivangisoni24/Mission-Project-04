@@ -41,7 +41,7 @@ public class SubjectModel {
 
 	}
 
-	public void add(SubjectBean bean) throws ApplicationException, DuplicateRecordException {
+	public long add(SubjectBean bean) throws ApplicationException, DuplicateRecordException {
 
 		Connection conn = null;
 		int pk;
@@ -88,6 +88,7 @@ public class SubjectModel {
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}
+		return pk;
 
 
 	}
@@ -138,14 +139,14 @@ public class SubjectModel {
 		}
 	}
 
-	public void delete(int id) throws ApplicationException {
+	public void delete(SubjectBean bean) throws ApplicationException {
 		Connection conn = null;
 		try {
 			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
 
 			PreparedStatement pstmt = conn.prepareStatement("delete from st_subject where id=?");
-			pstmt.setInt(1, id);
+			pstmt.setLong(1, bean.getId());
 			int i = pstmt.executeUpdate();
 			System.out.println("Data Deleted => " + i);
 
