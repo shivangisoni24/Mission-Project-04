@@ -103,7 +103,7 @@ public class MarksheetListCtl extends BaseCtl {
 					MarksheetBean deletebean = new MarksheetBean();
 					for (String id : ids) {
 						deletebean.setId(DataUtility.getInt(id));
-						model.delete(7);
+						model.delete(deletebean);
 						ServletUtility.setSuccessMessage("Marksheet is deleted successfully", request);
 					}
 				} else {

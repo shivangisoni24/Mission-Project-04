@@ -117,7 +117,7 @@ public class UserListCtl extends BaseCtl {
 					UserBean deletebean = new UserBean();
 					for (String id : ids) {
 						deletebean.setId(DataUtility.getInt(id));
-						model.delete(deletebean);
+						model.delete(deletebean.getId());
 						ServletUtility.setSuccessMessage("User deleted successfully", request);
 					}
 				} else {

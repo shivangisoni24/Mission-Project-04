@@ -63,7 +63,7 @@ public class FacultyModel {
 		try {
 			conn = JDBCDataSource.getConnection();
 			pk = nextPk();
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false); 
 			PreparedStatement pstmt = conn.prepareStatement(
 					"insert into st_faculty values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setInt(1, pk);
@@ -84,7 +84,7 @@ public class FacultyModel {
 			pstmt.setTimestamp(16, bean.getCreatedDatetime());
 			pstmt.setTimestamp(17, bean.getModifiedDatetime());
 			pstmt.executeUpdate();
-			conn.commit(); // End transaction
+			conn.commit(); 
 			pstmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,17 +103,18 @@ public class FacultyModel {
 	public static void update(FacultyBean bean) throws ApplicationException, DuplicateRecordException {
 		Connection conn = null;
 
-		// get College Name
+
+
 		CollegeModel collegeModel = new CollegeModel();
 		CollegeBean collegeBean = collegeModel.findByPk(bean.getCollegeId());
 		bean.setCollegeName(collegeBean.getName());
 
-		// get Course Name
+		
 		CourseModel courseModel = new CourseModel();
 		CourseBean courseBean = courseModel.findByPk(bean.getCourseId());
 		bean.setCourseName(courseBean.getName());
 
-		// get Subject Name
+		
 		SubjectModel subjectModel = new SubjectModel();
 		SubjectBean subjectBean = subjectModel.findByPk(bean.getSubjectId());
 		bean.setSubjectName(subjectBean.getName());

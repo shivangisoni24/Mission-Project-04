@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import in.co.rays.proj4.bean.FacultyBean;
 import in.co.rays.proj4.bean.MarksheetBean;
+import in.co.rays.proj4.model.FacultyModel;
 import in.co.rays.proj4.model.MarksheetModel;
 
 public class TestMarksheetModel {
@@ -61,8 +63,11 @@ public class TestMarksheetModel {
 	public static void testDelete() throws Exception {
 
 		MarksheetModel model = new MarksheetModel();
-		model.delete(8);
+		MarksheetBean bean = new MarksheetBean();
+		bean.setId(4);
+		model.delete(bean);
 	}
+	
 
 	public static void testfindByPk() throws Exception {
 

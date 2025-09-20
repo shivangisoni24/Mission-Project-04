@@ -52,7 +52,7 @@ public class TimetableModel {
 		try {
 			conn = JDBCDataSource.getConnection();
 			pk = nextPk();
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false); 
 			PreparedStatement pstmt = conn
 					.prepareStatement("insert into st_timetable values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setInt(1, pk);
@@ -69,7 +69,7 @@ public class TimetableModel {
 			pstmt.setTimestamp(12, bean.getCreatedDatetime());
 			pstmt.setTimestamp(13, bean.getModifiedDatetime());
 			pstmt.executeUpdate();
-			conn.commit(); // End transaction
+			conn.commit(); 
 			pstmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,7 +100,7 @@ public class TimetableModel {
 		try {
 			conn = JDBCDataSource.getConnection();
 
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false); 
 			PreparedStatement pstmt = conn.prepareStatement(
 					"update st_timetable set semester = ?, description = ?, exam_date = ?, exam_time = ?, course_id = ?, course_name = ?, subject_id = ?, subject_name = ?, created_by = ?, modified_by = ?, created_datetime = ?, modified_datetime = ? where id = ?");
 
@@ -118,7 +118,7 @@ public class TimetableModel {
 			pstmt.setTimestamp(12, bean.getModifiedDatetime());
 			pstmt.setLong(13, bean.getId());
 			pstmt.executeUpdate();
-			conn.commit(); // End transaction
+			conn.commit(); 
 			pstmt.close();
 		} catch (Exception e) {
 			try {
@@ -136,11 +136,11 @@ public class TimetableModel {
 		Connection conn = null;
 		try {
 			conn = JDBCDataSource.getConnection();
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false); 
 			PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ST_TIMETABLE WHERE ID=?");
 			pstmt.setLong(1 ,deletebean.getId());
 			pstmt.executeUpdate();
-			conn.commit(); // 
+			conn.commit();  
 			pstmt.close();
 
 		} catch (Exception e) {

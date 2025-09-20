@@ -186,9 +186,7 @@ public class TestUserModel {
 		UserBean bean = new UserBean();
 		UserModel model = new UserModel();
 
-		bean.setId(10);
-
-		model.delete(bean);
+		model.delete(10);
 
 	}
 
