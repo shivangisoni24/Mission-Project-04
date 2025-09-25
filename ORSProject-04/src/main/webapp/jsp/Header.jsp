@@ -95,7 +95,7 @@
  	}
 
  		if (user.getRoleId() == RoleBean.COLLEGE || user.getRoleId() == RoleBean.ADMIN) {
- %> | <a href="<%=ORSView.STUDENT_CTL%>">Add Student</a> | 
+ %>  <a href="<%=ORSView.STUDENT_CTL%>">Add Student</a> | 
       <a href="<%=ORSView.STUDENT_LIST_CTL%>">Student List</a> | 
       <a href="<%=ORSView.COURSE_CTL%>">Add Course</a> | 
       <a href="<%=ORSView.COURSE_LIST_CTL%>">Course List</a> | 
