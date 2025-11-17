@@ -12,6 +12,10 @@ import in.co.rays.proj4.exception.DatabaseException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.util.JDBCDataSource;
 
+/**
+ * @author Shivangi Soni
+ *
+ */
 public class CourseModel {
 
     public static Integer nextPk() throws DatabaseException {

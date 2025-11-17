@@ -90,6 +90,10 @@
 	  <a href="<%=ORSView.USER_LIST_CTL%>">User List</a> | 
 	  <a href="<%=ORSView.ROLE_CTL%>">Add Role</a> | 
 	  <a href="<%=ORSView.ROLE_LIST_CTL%>">Role List</a> |
+	   <a href="<%=ORSView.PATIENT_CTL%>">Add Patient</a>|
+	  <a href="<%=ORSView.PATIENT_LIST_CTL%>">Patient List</a>|
+	  <a href="<%=ORSView.DOCTOR_CTL%>">Add Doctor</a>|
+	  <a href="<%=ORSView.DOCTOR_LIST_CTL%>">Doctor List</a>|
 	  
 	  <%
  	}
@@ -111,7 +115,7 @@
  	}
 
  		if (user.getRoleId() == RoleBean.ADMIN) {
- %> | <a href="doc/index.html" target="blank">Java Doc</a> <%
+ %> | <a href="<%=ORSView.JAVA_DOC%>" target="blank">Java Doc</a> <%
  	}
  	} else {
  %> <a href="<%=ORSView.LOGIN_CTL%>"></a> <%

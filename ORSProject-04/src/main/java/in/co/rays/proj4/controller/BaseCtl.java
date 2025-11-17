@@ -2,10 +2,13 @@ package in.co.rays.proj4.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import in.co.rays.proj4.bean.BaseBean;
 import in.co.rays.proj4.bean.UserBean;
@@ -14,7 +17,9 @@ import in.co.rays.proj4.util.DataValidator;
 import in.co.rays.proj4.util.ServletUtility;
 
 public abstract class BaseCtl extends HttpServlet {
-
+	
+	Logger log = Logger.getLogger(BaseCtl.class);
+	
 	public static final String OP_SAVE = "Save";
 	public static final String OP_UPDATE = "Update";
 	public static final String OP_CANCEL = "Cancel";
@@ -47,6 +52,8 @@ public abstract class BaseCtl extends HttpServlet {
 
 	protected BaseBean populateDTO(BaseBean dto, HttpServletRequest request) {
 
+		log.info("BaseCtl populateDTO Method Started");
+		
 		String createdBy = request.getParameter("createdBy");
 		String modifiedBy = null;
 
@@ -75,6 +82,8 @@ public abstract class BaseCtl extends HttpServlet {
 
 		dto.setModifiedDatetime(DataUtility.getCurrentTimestamp());
 
+		 log.info("BaseCtl populateDTO Method Ended");
+		 
 		return dto;
 	}
 
@@ -82,6 +91,8 @@ public abstract class BaseCtl extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		log.info("BaseCtl service Method Started");
+		
 		preload(request);
 
 		String op = DataUtility.getString(request.getParameter("operation"));
@@ -96,6 +107,7 @@ public abstract class BaseCtl extends HttpServlet {
 				return;
 			}
 		}
+		log.info("BaseCtl service Method Ended");
 		super.service(request, response);
 	}
 

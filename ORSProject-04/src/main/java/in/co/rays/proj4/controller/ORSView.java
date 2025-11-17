@@ -92,5 +92,16 @@ public interface ORSView {
 
 	public String PATIENT_LIST_VIEW = PAGE_FOLDER + "/PatientListView.jsp";
 	public String PATIENT_LIST_CTL = APP_CONTEXT + "/ctl/PatientListCtl";
+	
+	
+
+    /** Doctor management pages and controllers (custom module) */
+    public String DOCTOR_VIEW = PAGE_FOLDER + "/DoctorView.jsp";
+    public String DOCTOR_CTL = APP_CONTEXT + "/ctl/DoctorCtl";
+
+    public String DOCTOR_LIST_VIEW = PAGE_FOLDER + "/DoctorListView.jsp";
+    public String DOCTOR_LIST_CTL = APP_CONTEXT + "/ctl/DoctorListCtl";
+    
+    public String JAVA_DOC = APP_CONTEXT + "/doc/index.html";
 
 }

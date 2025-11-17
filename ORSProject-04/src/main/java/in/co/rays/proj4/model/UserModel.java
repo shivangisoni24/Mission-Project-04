@@ -17,6 +17,10 @@ import in.co.rays.proj4.util.EmailMessage;
 import in.co.rays.proj4.util.EmailUtility;
 import in.co.rays.proj4.util.JDBCDataSource;
 
+/**
+ * @author Shivangi Soni
+ *
+ */
 public class UserModel {
 
 	public static Integer nextPk() throws DatabaseException {
