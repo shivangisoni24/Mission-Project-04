@@ -50,16 +50,20 @@ public class PatientCtl extends BaseCtl {
     @Override
     protected void preload(HttpServletRequest request) {
         HashMap<String, String> deceaseMap = new HashMap<>();
+        deceaseMap.put("Fever", "Fever");
         deceaseMap.put("Diabetes", "Diabetes");
         deceaseMap.put("Hypertension", "Hypertension");
         deceaseMap.put("Asthma", "Asthma");
-        deceaseMap.put("Tuberculosis", "Tuberculosis");
-        deceaseMap.put("Malaria", "Malaria");
-        deceaseMap.put("Alzheimer's", "Alzheimer's");
-        deceaseMap.put("Parkinson's", "Parkinson's");
-        deceaseMap.put("Hepatitis", "Hepatitis");
-        deceaseMap.put("Cholera", "Cholera");
-        deceaseMap.put("Ebola", "Ebola");
+        deceaseMap.put("Heart Attack", "Heart Attack");
+        deceaseMap.put("Teeth Doctor", "Teeth Doctor");
+        deceaseMap.put("Skin Allergy", "Skin Allergy");
+        deceaseMap.put("Joint Pain", "Joint Pain");
+        deceaseMap.put("Pregnancy", "Pregnancy");
+        deceaseMap.put("Headache", "Headache");
+        deceaseMap.put("Eye Infection", "Eye Infection");
+        deceaseMap.put("Cancer", "Cancer");
+        deceaseMap.put("Hormone Problem", "Hormone Problem");
+        
 
         request.setAttribute("deceaseMap", deceaseMap);
     }

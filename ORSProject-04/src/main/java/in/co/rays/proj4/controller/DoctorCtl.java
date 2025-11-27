@@ -50,16 +50,19 @@ public class DoctorCtl extends BaseCtl {
     @Override
     protected void preload(HttpServletRequest request) {
         HashMap<String, String> expertiseMap = new HashMap<>();
-        expertiseMap.put("Cardiology", "Cardiology");
-        expertiseMap.put("Neurology", "Neurology");
-        expertiseMap.put("Pulmonology", "Pulmonology");
-        expertiseMap.put("Gastroenterology", "Gastroenterology");
-        expertiseMap.put("Endocrinology", "Endocrinology");
-        expertiseMap.put("Dermatology", "Dermatology");
-        expertiseMap.put("Pediatrics", "Pediatrics");
-        expertiseMap.put("Oncology", "Oncology");
-        expertiseMap.put("Psychiatry", "Psychiatry");
-        expertiseMap.put("Orthopedics", "Orthopedics");
+        expertiseMap.put("General Physician", "General Physician"); //general health problems,  cold, fever, infection,BP< diabetes
+        expertiseMap.put("Cardiologist", "Cardiologist"); //Heart diseases, BP, Heart attack
+        expertiseMap.put("Neurology", "Neurology"); //Brain, Nerves, Paralysis
+        expertiseMap.put("ENT", "ENT"); // Ear,Nose, Throat
+        expertiseMap.put("Gynecologist", "Gynecologist"); // Women's health, Pregnancy, Preiods
+        expertiseMap.put("Dentist", "Dentist"); // Teeth, gums, mouth Problems
+        expertiseMap.put("Dermatologist", "Dermatologist"); // Skin, Hair, Nail diseases, Acne, Allergy
+        expertiseMap.put("Pediatrician", "Pediatrician"); // Childern's diseases and health care
+        expertiseMap.put("Oncologist", "Oncologist"); // Caancer treatment
+        expertiseMap.put("Psychiatrist", "Psychiatrist"); // Mental health, depression, anxiety
+        expertiseMap.put("Orthopedics", "Orthopedics");  // Bones, Joints, Fractures
+        expertiseMap.put("Surgeon", "Surgeon"); // Operation and surgeries
+        expertiseMap.put("Endocrinologist", "Endocrinologist"); // Hormones, diabetes, thyroid
 
         request.setAttribute("experticeMap", expertiseMap);
     }
