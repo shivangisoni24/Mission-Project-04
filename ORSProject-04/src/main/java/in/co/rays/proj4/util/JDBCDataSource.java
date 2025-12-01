@@ -19,8 +19,16 @@ public final class JDBCDataSource {
 	private JDBCDataSource() {
 		try {
 			cpds = new ComboPooledDataSource();
+			
 			cpds.setDriverClass(rb.getString("driver"));
-			cpds.setJdbcUrl(rb.getString("url"));
+			
+			String jdbcUrl = System.getenv("DATABASE_URL");
+			if (jdbcUrl == null) {
+				jdbcUrl = rb.getString("url");
+			}
+			
+			cpds.setJdbcUrl(jdbcUrl);
+			
 			cpds.setUser(rb.getString("username"));
 			cpds.setPassword(rb.getString("password"));
 			cpds.setInitialPoolSize(Integer.parseInt(rb.getString("initialpoolsize")));
