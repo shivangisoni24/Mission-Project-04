@@ -12,7 +12,7 @@
 		<%@ include file="Header.jsp"%>
 		<br> <br> <br>
 		<h1 align="center">
-			<font size="10px" color="navy">Welcome to ORS 25-12-2025</font>
+			<font size="10px" color="navy">Welcome to ORS</font>
 		</h1>
 
 		<%

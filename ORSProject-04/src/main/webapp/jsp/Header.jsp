@@ -94,6 +94,7 @@
 	  <a href="<%=ORSView.PATIENT_LIST_CTL%>">Patient List</a>|
 	  <a href="<%=ORSView.DOCTOR_CTL%>">Add Doctor</a>|
 	  <a href="<%=ORSView.DOCTOR_LIST_CTL%>">Doctor List</a>|
+	
 	  
 	  <%
  	}
@@ -106,7 +107,9 @@
 	  <a href="<%=ORSView.SUBJECT_CTL%>">Add Subject</a> | 
 	  <a href="<%=ORSView.SUBJECT_LIST_CTL%>">Subject List</a> | 
 	  <a href="<%=ORSView.FACULTY_CTL%>">Add Faculty</a> | 
-	  <a href="<%=ORSView.FACULTY_LIST_CTL%>">Faculty List</a> <%
+	  <a href="<%=ORSView.FACULTY_LIST_CTL%>">Faculty List</a> |
+	  <a href="<%=ORSView.ACCOUNT_CTL%>">Add Account</a> |
+      <a href="<%=ORSView.ACCOUNT_LIST_CTL%>">Account List</a> <%
  	}
  		if (user.getRoleId() == RoleBean.COLLEGE || user.getRoleId() == RoleBean.FACULTY
  				|| user.getRoleId() == RoleBean.ADMIN) {
