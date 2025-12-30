@@ -34,10 +34,25 @@ public class AccountCtl extends BaseCtl {
 
 		boolean pass = true;
 
-		if (DataValidator.isNull(request.getParameter("accountNo"))) {
-			request.setAttribute("accountNo", PropertyReader.getValue("error.require", "Account No"));
-			pass = false;
+//		if (DataValidator.isNull(request.getParameter("accountNo"))) {
+//			request.setAttribute("accountNo", PropertyReader.getValue("error.require", "Account No"));
+//			pass = false;
+//		}
+
+		
+	
+		String accountNo = request.getParameter("accountNo");
+
+		if (DataValidator.isNull(accountNo)) {
+		    request.setAttribute("accountNo", PropertyReader.getValue("error.require", "Account Number"));
+		    pass = false;
+		} else if (!accountNo.matches("^(?:[A-Z]{5}[0-9]{11}|[A-Z]{4}[0-9][A-Z][0-9]{10}|[A-Z]{3}[0-9]{2}[A-Z]{2}[0-9]{9}|[A-Z]{2}[0-9]{3}[A-Z]{3}[0-9]{8}|[A-Z]{1}[0-9]{4}[A-Z]{4}[0-9]{7}|[0-9]{5}[A-Z]{5}[0-9]{6}|[0-9]{6}[A-Z]{5}[0-9]{5}|[0-9]{7}[A-Z]{5}[0-9]{4}|[0-9]{8}[A-Z]{5}[0-9]{3}|[0-9]{9}[A-Z]{5}[0-9]{2}|[0-9]{10}[A-Z]{5}[0-9]{1}|[0-9]{11}[A-Z]{5})$")) {
+		    request.setAttribute("accountNo","Account No must be 16 character(uppercase & digits)");
+		    pass = false;
 		}
+
+		
+		
 
 		if (DataValidator.isNull(request.getParameter("accountType"))) {
 			request.setAttribute("accountType", PropertyReader.getValue("error.require", "Account Type"));

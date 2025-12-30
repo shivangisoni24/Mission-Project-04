@@ -11,7 +11,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -114,7 +113,7 @@
 
 				<tr>
 					<td style="text-align: center;">
-						<input type="checkbox" name="ids" value="<%=bean.getId()%>">
+						<input type="checkbox"  class="case" name="ids" value="<%=bean.getId()%>">
 					</td>
 
 					<td style="text-align: center;"><%=index++%></td>
