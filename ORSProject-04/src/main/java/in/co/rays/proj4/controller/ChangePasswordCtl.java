@@ -121,6 +121,7 @@ public class ChangePasswordCtl extends BaseCtl {
 		ServletUtility.forward(ORSView.CHANGE_PASSWORD_VIEW, request, response);
 	}
 
+	
 	@Override
 	protected String getView() {
 		return ORSView.CHANGE_PASSWORD_VIEW;
